@@ -1,0 +1,3 @@
+FROM traefik
+
+EXPOSE 80 443

@@ -38,6 +38,9 @@ init:
 down:
 	$(COMPOSE) down
 
+cert-bot:
+	docker run --rm -v /nginx/letsencrypt:/etc/letsencrypt -ti certbot/certbot certonly --manual --email $(CERTBOT_EMAIL) --domains=$(domain)
+
 #備份mysql all database
 mysql-backup:
 	$(COMPOSE) up -d mysql

@@ -5,7 +5,7 @@ export $(shell sed 's/=.*//' ./.env)
 #當前年-月-日
 DATE=$(shell date +"%F")
 COMPOSE=docker-compose
-SERVICES=nginx mysql adminer minio ngrok
+SERVICES=nginx mysql
 
 .PHONY: up, init, down
 
@@ -27,12 +27,16 @@ ps:
 
 #重啟服務
 restart:
-	$(COMPOSE) restart
+	$(COMPOSE) restart $(service)
 
 #初始化
 init:
 	$(COMPOSE) build --force-rm --no-cache
 	$(MAKE) up
+
+#重新啟動、建立單一服務(重新取得docker-composer.yml設定)
+reup:
+	$(COMPOSE) up -d --force-recreate --no-deps --build $(service)
 
 #關閉所有服務
 down:

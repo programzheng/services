@@ -114,7 +114,7 @@ services:
     build:
       context: ./ngrok
     ports:
-      - "${NGROK_PORT}:4040"
+      - ${NGROK_PORT}:4040
     environment:
       - NGROK_AUTH=${NGROK_AUTHTOKEN}
       - NGROK_PROTOCOL=http

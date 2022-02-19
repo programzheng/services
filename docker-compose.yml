@@ -53,6 +53,7 @@ services:
       context: ./mysql
       args:
         - MYSQL_VERSION=${MYSQL_VERSION}
+    restart: always
     ports:
       - ${MYSQL_PORT}:3306
     volumes:
@@ -101,6 +102,7 @@ services:
   redis:
     build:
       context: ./redis
+    restart: always
     volumes:
       - ${DATA_PATH_HOST}/redis:/data
     ports:

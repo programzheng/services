@@ -68,6 +68,23 @@ services:
     networks:
       - backend
 
+  #postgres
+  postgres:
+    build:
+      context: ./postgres
+      args:
+        - POSTGRES_VERSION=${POSTGRES_VERSION}
+    restart: always
+    ports:
+      - ${POSTGRES_PORT}:5432
+    volumes:
+      - ${DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
+      - ${POSTGRES_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    networks:
+      - backend
+
   #adminer
   adminer:
     build: ./adminer

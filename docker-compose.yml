@@ -142,6 +142,19 @@ services:
     networks:
       - backend
 
+  #cloudflared
+  cloudflared:
+    build:
+      context: ./cloudflared
+    restart: always
+    volumes:
+      - ./cloudflared/.cloudflared:/etc/cloudflared
+    command:
+        - tunnel
+        - run
+    networks:
+      - backend
+
   zookeeper:
     build:
       context: ./zookeeper

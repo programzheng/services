@@ -133,7 +133,7 @@ services:
     ports:
       - ${NGROK_PORT}:4040
     environment:
-      - NGROK_AUTH=${NGROK_AUTHTOKEN}
+      - NGROK_AUTH=${NGROK_AUTH}
       - NGROK_PROTOCOL=http
       - NGROK_REGION=ap
       - NGROK_PORT=nginx:80

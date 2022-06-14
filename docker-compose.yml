@@ -85,6 +85,20 @@ services:
     networks:
       - backend
 
+  #influxdb
+  influxdb:
+    build:
+      context: ./influxdb
+      args:
+        - INFLUXDB_VERSION=${INFLUXDB_VERSION}
+    restart: always
+    ports:
+      - ${INFLUXDB_PORT}:8086
+    volumes:
+      - ${DATA_PATH_HOST}/influxdb2:/var/lib/influxdb2
+    networks:
+      - backend
+
   #adminer
   adminer:
     build: ./adminer

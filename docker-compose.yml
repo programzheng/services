@@ -1,5 +1,9 @@
 version: '3'
 
+networks:
+  backend:
+    driver: bridge
+
 services:
   portainer:
     build:
@@ -197,7 +201,3 @@ services:
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
-
-networks:
-  backend:
-    external: true

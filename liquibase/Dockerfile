@@ -1,0 +1,2 @@
+ARG LIQUIBASE_VERSION=latest
+FROM liquibase/liquibase:${LIQUIBASE_VERSION}

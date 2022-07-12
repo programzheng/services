@@ -120,6 +120,14 @@ services:
     networks:
       - backend
 
+  #liquibase
+  liquibase:
+    build :
+      context: ./liquibase
+      args:
+        - LIQUIBASE_VERSION=${LIQUIBASE_VERSION}
+    restart: always
+
   #minio
   minio:
     build: ./minio

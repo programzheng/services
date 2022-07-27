@@ -1,1 +1,1 @@
-FROM cloudflare/cloudflared:2022.2.0
+FROM cloudflare/cloudflared:latest

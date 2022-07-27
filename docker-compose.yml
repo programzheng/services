@@ -2,7 +2,7 @@ version: '3'
 
 networks:
   backend:
-    driver: bridge
+    external: true
 
 services:
   portainer:

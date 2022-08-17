@@ -1,0 +1,2 @@
+ARG K6_VERSION=latest
+FROM grafana/k6:${K6_VERSION}

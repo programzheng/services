@@ -95,6 +95,7 @@ services:
       context: ./mongo
       args:
         - MONGODB_VERSION=${MONGODB_VERSION}
+    restart: always
     ports:
       - "${MONGODB_PORT}:27017"
     environment:

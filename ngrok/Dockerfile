@@ -1,3 +1,3 @@
-FROM wernight/ngrok
+FROM ngrok/ngrok:latest
 
 EXPOSE 4040

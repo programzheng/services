@@ -186,11 +186,14 @@ services:
       context: ./ngrok
     ports:
       - ${NGROK_PORT}:4040
-    environment:
-      - NGROK_AUTH=${NGROK_AUTH}
-      - NGROK_PROTOCOL=http
-      - NGROK_REGION=ap
-      - NGROK_PORT=nginx:80
+    volumes:
+      - ./ngrok/ngrok.yml:/etc/ngrok.yml
+      - ./ngrok/log:/var/log
+    command:
+      - "start"
+      - "--all"
+      - "--config"
+      - "/etc/ngrok.yml"
     depends_on:
       - nginx
     networks:
@@ -204,8 +207,8 @@ services:
     volumes:
       - ./cloudflared/.cloudflared:/etc/cloudflared
     command:
-        - tunnel
-        - run
+      - tunnel
+      - run
     networks:
       - backend
     extra_hosts:

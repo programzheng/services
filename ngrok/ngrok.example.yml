@@ -1,0 +1,24 @@
+authtoken:
+connect_timeout: 30s
+console_ui: true
+console_ui_color: transparent
+heartbeat_interval: 1m
+heartbeat_tolerance: 5s
+inspect_db_size: 104857600
+log_level: info
+log_format: json
+log: /var/log/ngrok.log
+region: ap
+remote_management: false
+update_channel: stable
+update_check: false
+version: 2
+web_addr: localhost:4040
+tunnels:
+  nginx:
+    addr: nginx:80
+    schemes: 
+      - http
+      - https
+    inspect: false
+    proto: http
